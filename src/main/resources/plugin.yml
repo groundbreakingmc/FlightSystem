@@ -1,0 +1,101 @@
+name: ElytraFly
+version: '${version}'
+main: noslowd0wn.elytrafly.ElytraFly
+authors: [ noslowdwn ]
+description: Make the flight harder so it's no so cheating
+website: https://spacetrip.fun
+
+commands:
+  elytrafly:
+    usage: /<command> <on/off/help/reload/switch/all> <on/off/player>
+    aliases:
+      - fly
+
+permissions:
+  elytrafly.reload:
+    default: false
+
+  elytrafly.fly.switch:
+    default: false
+    children:
+      elytrafly.fly.on: true
+      elytrafly.fly.off: true
+
+  elytrafly.fly.on:
+    default: false
+
+  elytrafly.fly.off:
+    default: false
+
+  elytrafly.fly.switch.other:
+    default: false
+    children:
+      elytrafly.fly.other.on: true
+      elytrafly.fly.other.off: true
+
+  elytrafly.fly.on.other:
+    default: false
+
+  elytrafly.fly.off.other:
+    default: false
+
+  elytrafly.fly.on.all:
+    default: false
+
+  elytrafly.fly.off.all:
+    default: false
+
+  elytrafly.fly.switch.all:
+    default: false
+
+  elytrafly.bypass.elytra:
+    default: false
+
+  elytrafly.bypass.damage:
+    default: false
+
+  elytrafly.bypass.broken:
+    default: false
+
+  elytrafly.bypass.prevention.elytra:
+    default: false
+
+  elytrafly.bypass.prevention.fly:
+    default: false
+
+  elytrafly.help.user:
+    default: false
+
+  elytrafly.help.staff:
+    default: false
+
+  elytrafly.help.admin:
+    default: false
+
+  elytrafly.staff:
+    default: false
+    children:
+      elytrafly.fly.switch: true
+      elytrafly.fly.switch.other: true
+      elytrafly.bypass.elytra: true
+      elytrafly.bypass.damage: true
+      elytrafly.bypass.broken: true
+      elytrafly.bypass.prevention.elytra: true
+      elytrafly.bypass.prevention.fly: true
+      elytrafly.help.staff: true
+
+  elytrafly.admin:
+    default: op
+    children:
+      elytrafly.reload: true
+      elytrafly.fly.switch: true
+      elytrafly.fly.switch.other: true
+      elytrafly.bypass.elytra: true
+      elytrafly.bypass.damage: true
+      elytrafly.bypass.broken: true
+      elytrafly.bypass.prevention.elytra: true
+      elytrafly.bypass.prevention.fly: true
+      elytrafly.help.admin: true
+      elytrafly.fly.on.all: true
+      elytrafly.fly.off.all: true
+      elytrafly.fly.switch.all: true
