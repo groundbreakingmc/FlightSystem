@@ -1,0 +1,75 @@
+# Основные команды [ /elytrafly /fly ]
+# - /fly - включить/выключить режим полёта
+# - /fly reload - перезагрузить конфигурации плагина
+# - /fly <help> - инструкция по использованию
+# - /fly <on/of> - намеренно включить или отключить режим полёта себе
+# - /fly <on/of> <ник> - намеренно включить или отключить режим полёта указанному игроку
+# - /fly switch <ник> - переключить режим полёта указанному игроку (если включено выключится и наоборот)
+# - /fly all <on/off> - установить режим полёта всем игрокам онлайн
+# - /fly all switch - переключить режим полёта всему серверу (если включено выключится и наоборот)
+#
+# Права
+# - elytrafly.bypass.elytra - включить полёт без элитр
+# - elytrafly.bypass.broken - разрешает включить полёт даже со сломанными элитрами
+# - elytrafly.bypass.damage - отключить нанесение урона крыльям при полёте
+# - elytrafly.bypass.prevention.elytra - обход блокировки элитр в энде
+# - elytrafly.bypass.prevention.fly - обход блокировки полёта в энде
+# - elytrafly.fly.switch - включает в себя [ spacefly.fly.on ] и [ spacefly.fly.off ]
+# - elytrafly.fly.on - разрешает включить полёт, но только с элитрами
+# - elytrafly.fly.off - разрешает выключить полёт
+# - elytrafly.fly.other.switch - включает в себя [ spacefly.fly.other.on ] и [ spacefly.fly.other.off ]
+# - elytrafly.fly.other.on - разрешает включить полёт кому угодно
+# - elytrafly.fly.other.off - разрешает отключить полёт кому угодно
+# - elytrafly.staff - включает в себя [ spacefly.fly.on ] [ spacefly.fly.off ] [ spacefly.fly.other.on ] [ spacefly.fly.other.off ], а так-же все байпасы
+# - elytrafly.admin - включает в себя всё выше упомянутое
+utils:
+  # Настройки команды /fly
+  flight: # fly-command:
+    # Будет ли плагин требовать надетые элитры для включения полёта? (default: true)
+    elytra-only: true
+    # Будет ли включаться полёт если элитры сломаны? (default: false)
+    fly-with-broken: false
+    # Нужно ли удалять элитры если они сломались во время полёта? (default: false)
+    delete-if-broken: false
+    # Запретить ли снимать игроку элитры во время полёта? (default: true)
+    prepare-unequip: false
+    # Отключать ли полёт если игрок снял элитры? (default: true)
+    disable-if-unequiped: true
+    # Настройки наносимого урона во время полёта
+    damage:
+      # Стоит ли наносить урон элитрам, когда игрок летает? (default: false)
+      enable: false
+      # Как часто стоит наносить урон? (В секундах) (default: 3)
+      interval: 3
+      # Как много единиц урона следует наносить? (default: 1)
+      power: 1
+  # Настройки модуля запрета полёта на элитрах (не через команду /fly)
+  elytra-glide:
+    # Предотвращать ли полёт на элитрах? (default: false)
+    prevent: false
+    # Отображать ли игроку сообщение о запрете на экран? (default: true)
+    send-title-and-subtitle: true
+    # Отображать ли игроку сообщение о запрете над хотбаром? (default: true)
+    send-actionbar: true
+    # Отправлять ли игроку сообщение о запрете в чат? (default: false)
+    send-chat-message: false
+    # Запретить ли снимать игроку элитры во время полёта? (default: true)
+    prepare-unequip: false
+    # Миры в которых не будет работать полёт на элитрах
+    disabled-worlds:
+      - world_the_end
+  # Настройки модуля запрета полёта (через команду /fly)
+  flight-prevent:
+    # Включен ли модуль? (default: false)
+    enable: false
+    # Отображать ли игроку сообщение о запрете на экран? (default: true)
+    send-title-and-subtitle: true
+    # Отображать ли игроку сообщение о запрете над хотбаром? (default: true)
+    send-actionbar: true
+    # Отправлять ли игроку сообщение о запрете в чат? (default: false)
+    send-chat-message: false
+    # Миры в которых не будет работать полёт (а так-же команда /fly)
+    disabled-worlds:
+      - world_the_end
+
+config-version: 1.0

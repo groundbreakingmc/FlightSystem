@@ -1,0 +1,111 @@
+name: FlightSystem
+version: '${version}'
+main: noslowdwn.flightsystem.FlightSystem
+author: noslowdwn
+description: Make flying harder and give alytras an extra life.
+website: https://modrinth.com/plugin/flightsystem
+
+softdepend: [ PlaceholderAPI ]
+
+commands:
+  flightsystem:
+    usage: /<command> <on/off/help/reload/switch/all> <on/off/player>
+    aliases:
+      - flysystem
+      - fsystem
+      - flys
+      - elytrafly
+      - fly
+
+permissions:
+  flightsystem.reload:
+    default: false
+
+  flightsystem.fly.switch:
+    default: false
+    children:
+      flightsystem.fly.on: true
+      flightsystem.fly.off: true
+
+  flightsystem.fly.on:
+    default: false
+
+  flightsystem.fly.off:
+    default: false
+
+  flightsystem.fly.switch.other:
+    default: false
+    children:
+      flightsystem.fly.on.other: true
+      flightsystem.fly.off.other: true
+
+  flightsystem.fly.on.other:
+    default: false
+
+  flightsystem.fly.off.other:
+    default: false
+
+  flightsystem.fly.on.all:
+    default: false
+
+  flightsystem.fly.off.all:
+    default: false
+
+  flightsystem.fly.switch.all:
+    default: false
+    children:
+      flightsystem.fly.on.all: true
+      flightsystem.fly.off.all: true
+
+  flightsystem.bypass.unequip:
+    default: false
+
+  flightsystem.bypass.elytra:
+    default: false
+
+  flightsystem.bypass.damage:
+    default: false
+
+  flightsystem.bypass.broken:
+    default: false
+
+  flightsystem.bypass.prevention.elytra:
+    default: false
+
+  flightsystem.bypass.prevention.fly:
+    default: false
+
+  flightsystem.help.user:
+    default: false
+
+  flightsystem.help.staff:
+    default: false
+
+  flightsystem.help.admin:
+    default: false
+
+  flightsystem.staff:
+    default: false
+    children:
+      flightsystem.fly.switch: true
+      flightsystem.fly.switch.other: true
+      flightsystem.bypass.elytra: true
+      flightsystem.bypass.damage: true
+      flightsystem.bypass.broken: true
+      flightsystem.bypass.prevention.elytra: true
+      flightsystem.bypass.prevention.fly: true
+      flightsystem.help.staff: true
+
+  flightsystem.admin:
+    default: op
+    children:
+      flightsystem.reload: true
+      flightsystem.fly.switch: true
+      flightsystem.fly.switch.other: true
+      flightsystem.fly.switch.all: true
+      flightsystem.bypass.elytra: true
+      flightsystem.bypass.damage: true
+      flightsystem.bypass.broken: true
+      flightsystem.bypass.prevention.elytra: true
+      flightsystem.bypass.prevention.fly: true
+      flightsystem.help.admin: true
