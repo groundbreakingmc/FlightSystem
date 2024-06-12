@@ -57,7 +57,6 @@ public class Config {
 
     public static void checkVersion(String name, double version) {
 
-        try
         File file = new File(instance.getDataFolder(), name);
         FileConfiguration config = YamlConfiguration.loadConfiguration(file);
         String[] fname = name.split("\\.", 2);
